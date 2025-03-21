@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -23,27 +23,25 @@ const Navbar = () => {
         <span>Job Portal</span>
     </a>
     {/* nav items for large devices */}
-    <ul>
-        {
-            navItems.map(({path, title}) => {
-                <li key={path}>
+    <ul className='hidden md:flex gap-12'>
+        {navItems.map(({path, title}) => (
+                <li key={path} className='text-base text-black'>
                      <NavLink
                     to={path}
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : ""
-                    }
+                    className={({ isActive}) =>isActive? "active":"" }
                   >
                     {title}
                     
                   </NavLink>
                 </li>
-            })
-        }
+        ))}
     </ul>
+    {/* sign up and login button */}
+    <div className='text-base text-blue-600 font-medium space-x-5 hidden lg:block'>
+      <Link to="/login" className='py-2 px-5 border rounded'> Log in </Link>
+      <Link to="/sign-up" className='py-2 px-5 border rounded bg-blue-600 text-white'>Sign up</Link>
+
+    </div>
 </nav>
 
     </header>
