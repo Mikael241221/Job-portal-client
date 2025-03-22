@@ -53,10 +53,10 @@ const Navbar = () => {
     </div>
 </nav>
 {/* navitems for mobile */}
- <div className={`px-4 bg-black py-5 rounded-sm`}>
+ <div className={`px-4 bg-black py-5 rounded-sm ${isMenuOpen ? "" : "hidden"}`}>
  <ul>
         {navItems.map(({path, title}) => (
-                <li key={path} className='text-base text-white'>
+                <li key={path} className='text-base text-white first:text-white py-1'>
                      <NavLink
                     to={path}
                     className={({ isActive}) =>isActive? "active":"" }
