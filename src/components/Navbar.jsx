@@ -42,6 +42,10 @@ const Navbar = () => {
       <Link to="/sign-up" className=' !text-white !py-2 !px-5 !border rounded bg-blue-600 text-white'>Sign up</Link>
 
     </div>
+    {/* mobile menu  */}
+    <div>
+      <button></button>
+    </div>
 </nav>
 
     </header>
