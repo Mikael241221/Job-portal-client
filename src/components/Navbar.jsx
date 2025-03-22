@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { FaBarsStaggered, FaXmark} from "react-icons/fa6";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -15,9 +16,9 @@ const Navbar = () => {
   return (
     <header className='max-w-screen-2xl container mx-auto xl:px-24 px-4'>
       <nav className='flex justify-between items-center py-6'>
-    <a href="/" className='flex itmes-center gap-2 text-2xl text-black'> 
+    <a href="/" className='flex items-center gap-2 text-2xl text-black'> 
         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
-            <circle cx="12.0143" cy="12.5143" r="12.0143" fill="#3575E2" fill-opacity="0.4"/>
+            <circle cx="12.0143" cy="12.5143" r="12.0143" fill="#3575E2" fillOpacity="0.4"/>
             <circle cx="16.9857" cy="12.0143" r="12.0143" fill="#3575E2"/>
         </svg>
         <span>JobPortal</span>
@@ -43,10 +44,30 @@ const Navbar = () => {
 
     </div>
     {/* mobile menu  */}
-    <div>
-      <button></button>
+    <div className='md:hidden block'>
+      <button onClick={handleMenuToggler}>
+        {
+         isMenuOpen ? <FaXmark className='!w-5 !h-5 text-black'/> : <FaBarsStaggered className='!w-5 !h-5 text-black'/>
+        }
+        </button>
     </div>
 </nav>
+{/* navitems for mobile */}
+ <div className={`px-4 bg-black py-5 rounded-sm`}>
+ <ul>
+        {navItems.map(({path, title}) => (
+                <li key={path} className='text-base text-white'>
+                     <NavLink
+                    to={path}
+                    className={({ isActive}) =>isActive? "active":"" }
+                  >
+                    {title}
+                    
+                  </NavLink>
+                </li>
+        ))}
+    </ul>
+ </div>
 
     </header>
   )
