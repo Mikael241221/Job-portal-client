@@ -11,12 +11,16 @@ const Home = () => {
       setJobs(data)
     })
   },[])
-  console.log(jobs)
+  // console.log(jobs)
+  // handle input change 
    const [query, setQuery] =useState("");
     const handleInputChange = (event) => {
      setQuery(event.target.value)
      
     }
+    // filter jobs by title
+    const filteredItems = jobs.filter((job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    console.log(filteredItems)
     
   return (
     <div> 
