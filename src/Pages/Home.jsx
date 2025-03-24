@@ -24,12 +24,12 @@ const Home = () => {
     const filteredItems = jobs.filter((job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1);
     // .........Radio filtering ..........
     const handleChange = (event) => {
-      selectedCategory(event.target.value)
+      setSelectedCategory(event.target.value)
     }
     
      // .........Button based filtering ..........
-    const hanleClick = (event) => {
-      selectedCategory(event.tartget.value)
+    const handleClick = (event) => {
+      setSelectedCategory(event.target.value)
     }
     // main function 
     const filteredData = (jobs, selected, query) => {
@@ -61,8 +61,12 @@ const Home = () => {
   return (
     <div> 
       <Banner query ={query} handleInputChange={handleInputChange}/>
+      {/* main content */}
       <div>
-        <Jobs result ={result}/>
+         <div>left</div>
+         <div><Jobs result ={result}/></div>
+         <div>right</div>
+        
       </div>
     </div>
   )

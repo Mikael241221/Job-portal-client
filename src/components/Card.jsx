@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({data}) => {
   return (
     <div>
-   card
+   <h1>{data.jobTitle}</h1>
   </div>
   )
 }
