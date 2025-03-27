@@ -37,6 +37,24 @@ const Home = () => {
     const handleClick = (event) => {
       setSelectedCategory(event.target.value)
     }
+    // calculate the index range
+    const calculatePageRange = () => {
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      return {startIndex, endIndex};
+    }
+    // function for next page
+    const nextPage = () => {
+      if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)){
+        setCurrentPage(currentPage + 1)
+      }
+    }
+    //function for the previous page
+    const prevPage = () => {
+      if(currentPage > 1){
+        setCurrentPage(currentPage - 1)
+      }
+    }
     // main function 
     const filteredData = (jobs, selected, query) => {
       let filteredjobs =jobs;
