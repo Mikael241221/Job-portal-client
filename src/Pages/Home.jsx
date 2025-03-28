@@ -79,6 +79,9 @@ const Home = () => {
         ));
         console.log(filteredjobs)
       }
+      // slice the data based on current page
+      const  {startIndex, endIndex} = calculatePageRange();
+       filteredjobs = filteredjobs.slice(startIndex,endIndex);
       return filteredjobs.map((data,i) => <Card key={i} data={data}/>)
     }
     const result = filteredData(jobs, selectedCategory,query);
@@ -98,6 +101,16 @@ const Home = () => {
             <h3 className='text-lg font-bold mb-2'>{result.length} Jobs </h3>
             <p>No data found! please try another country </p>
             </>
+          }
+          {/* pagination  */}
+          {
+            result.length > 0 ? (
+              <div className='flex justify-center mt-4 space-x-8'>
+                <button>Previous</button>
+                <span> Page {currentPage} of {Math.ceil(filteredItems.length / itemsPerPage)} </span>
+                <button>Next</button>
+              </div>
+            ): ""
           }
           
           </div>
