@@ -1,12 +1,14 @@
 import React from 'react'
-import Button from '../components/Button'
+import Button from './Button'
 
 const Salary = ({handleChange, handleClick}) => {
   return (
     <div>
-     <h4 className='text-lg font-medium mb-1'>Salary</h4>
-     <div>
-        <Button/>
+     <h4 className='text-lg font-medium mb-2'>Salary</h4>
+     <div  className="flex space-x-1 w-full">
+        <Button onClickHandler={handleClick} value="" title="Hourly"/>
+        <Button onClickHandler={handleClick} value="monthly" title="Monthly"/>
+        <Button onClickHandler={handleClick} value="yearly" title="Yearly"/>
      </div>
     </div>
   )
