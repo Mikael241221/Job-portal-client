@@ -64,19 +64,22 @@ const Home = () => {
       }
       // category filtering
       if (selected){
-        filteredjobs = filteredjobs.filter(({
+        filteredjobs = filteredjobs.filter(
+          ({
         maxPrice,
         salaryType,
         jobLocation,
-        postingDate,
         experienceLevel,
         employmentType,
-        }) =>(
+        postingDate,
+        }) =>
+          
           jobLocation.toLowerCase() === selected.toLowerCase() ||
           parseInt(maxPrice) <= parseInt(selected ) ||
+          postingDate >= selected ||
           salaryType.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
-        ));
+        );
         console.log(filteredjobs)
       }
       // slice the data based on current page
