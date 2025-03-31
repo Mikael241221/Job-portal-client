@@ -78,6 +78,7 @@ const Home = () => {
           parseInt(maxPrice) <= parseInt(selected ) ||
           postingDate >= selected ||
           salaryType.toLowerCase() === selected.toLowerCase() ||
+          experienceLevel.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
         );
         console.log(filteredjobs)
